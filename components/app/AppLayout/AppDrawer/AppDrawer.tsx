@@ -82,7 +82,7 @@ const AppDrawer = ({
       <DrawerHeader>
         <Typography className="m-auto" variant="h6">
           {
-            open? "Competitiors Community" : "CC"
+            open? "Aetheria" : "A"
           }
         </Typography>
       </DrawerHeader>

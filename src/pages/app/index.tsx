@@ -16,6 +16,7 @@ import {
   addDoc,
   arrayUnion,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   onSnapshot,
@@ -115,7 +116,7 @@ const App = ({ booksDataString }: { booksDataString: string }) => {
   };
 
   useEffect(() => {
-    if(qrcode==="") return;
+    if (qrcode === "") return;
     if (qrcode) setOpenDialog(true);
   }, [qrcode]);
 
@@ -129,6 +130,13 @@ const App = ({ booksDataString }: { booksDataString: string }) => {
 
     const qrRef = doc(db, "qrcodes", docSnap.id);
     const unsubscribe = onSnapshot(qrRef, async (document) => {
+      // set time out to 5 seconds and then unsubscribe
+      // setTimeout(() => {
+      //   unsubscribe();
+      //   closeBackdrop();
+      //   console.log("unsubscribed");
+      // }, 120000);
+
       if (document.data()?.uid === uid) {
         try {
           setOpenDialog(false);
@@ -136,31 +144,26 @@ const App = ({ booksDataString }: { booksDataString: string }) => {
           const batch = writeBatch(db);
           const userRef = doc(db, "Userdata", uid);
           const historyRef = doc(db, "history", rowId);
-          
+
           const userDoc = await getDoc(userRef);
           batch.set(
             historyRef,
             {
-              history: arrayUnion(
-                {
-                  uid: uid,
-                  username: userDoc.data()?.fname + " " + userDoc.data()?.lname,
-                  issueDate: new Date(),
-                  returnDate: null,
-                },
-              ),
+              history: arrayUnion({
+                uid: uid,
+                username: userDoc.data()?.fname + " " + userDoc.data()?.lname,
+                issueDate: new Date(),
+                returnDate: null,
+              }),
             },
             { merge: true }
-          )
-          batch.delete(qrRef)
+          );
+          batch.delete(qrRef);
           await batch.commit();
         } catch (e: any) {
           showError("Please try again later.");
           console.log(e);
         }
-
-
-
         unsubscribe();
         closeBackdrop();
       }
@@ -174,17 +177,22 @@ const App = ({ booksDataString }: { booksDataString: string }) => {
     await setDoc(
       historyRef,
       {
-        history: arrayUnion(
-          {
-            uid: uid,
-            username: "Anas",
-            issueDate: new Date(),
-            returnDate: null,
-          },
-        ),
+        history: arrayUnion({
+          uid: uid,
+          username: "Anas",
+          issueDate: new Date(),
+          returnDate: null,
+        }),
       },
       { merge: true }
     );
+  };
+
+  const handleCloseQR = async () => {
+    // delete qrcode from db;
+    setOpenDialog(false);
+    const qrRef = doc(db, "qrcodes", qrcode);
+    await deleteDoc(qrRef);
   };
 
   return (
@@ -224,7 +232,7 @@ const App = ({ booksDataString }: { booksDataString: string }) => {
           <QRCode value={qrcode} />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenDialog(false)}>Close</Button>
+          <Button onClick={handleCloseQR}>Close</Button>
         </DialogActions>
       </Dialog>
     </>
@@ -234,18 +242,32 @@ const App = ({ booksDataString }: { booksDataString: string }) => {
 export default App;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const booksDataString = await getDoc(doc(db, "idk", "idk"));
-  // turn into array and add key as id
-  const booksDataArray = Object.entries(booksDataString.data()?.books).map(
-    ([key, value]) => {
-      // @ts-ignore
-      return { ...value, id: key };
-    }
-  );
+  // automatic wrapping in pino.destination
+  const fileLogger = require("pino")("app.log");
+  try {
+    fileLogger.info("Hi");
 
-  return {
-    props: {
-      booksDataString: JSON.stringify(booksDataArray),
-    },
-  };
+    const booksDataString = await getDoc(doc(db, "idk", "idk"));
+    // turn into array and add key as id
+    const booksDataArray = Object.entries(booksDataString.data()?.books).map(
+      ([key, value]) => {
+        // @ts-ignore
+        return { ...value, id: key };
+      }
+    );
+
+    return {
+      props: {
+        // booksDataString: JSON.stringify(booksDataArray),
+        booksDataString: "[]",
+      },
+    };
+  } catch (e) {
+    fileLogger.error(e);
+    return {
+      props: {
+        booksDataString: "[]",
+      },
+    };
+  }
 };
