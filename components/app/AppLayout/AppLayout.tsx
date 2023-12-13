@@ -2,7 +2,6 @@ import { Box, CssBaseline } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useUser } from "components/UserContext";
 import AppStructure from "components/app/AppLayout/AppStructure/AppStructure";
-import Loading from "components/general/Loading/Loading";
 import { auth } from "components/general/firebase-config";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -42,27 +41,23 @@ export default function AppLayout(props: AppLayoutProps) {
 
   return (
     <>
-      {userLoading !== "loaded" || loading ? (
-        <Loading message="Loading..." />
-      ) : (
-        <Box sx={{ display: "flex" }}>
-          <CssBaseline />
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
 
-          <AppStructure isAdmin={isAdmin} />
+        <AppStructure isAdmin={isAdmin} />
 
-          <Box
-            component="main"
-            sx={{
-              flexGrow: 1,
-              paddingBottom: "3rem",
-            }}
-          >
-            <DrawerHeader />
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            paddingBottom: "3rem",
+          }}
+        >
+          <DrawerHeader />
 
-            {props.children}
-          </Box>
+          {props.children}
         </Box>
-      )}
+      </Box>
     </>
   );
 }

@@ -1,4 +1,3 @@
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 export default function Home() {
   return (
@@ -14,10 +13,13 @@ export default function Home() {
           fontWeight: "bold",
           backgroundColor: "black",
           color: "white",
+          textAlign: "center",
         }}
       >
-        Home Page
-        <a 
+        A E T H E R I A
+        <br />
+        (Currently down for maintenance)
+        {/* <a 
           href="/app"
           style={{
             color: "lightblue",
@@ -30,7 +32,7 @@ export default function Home() {
           }}
         >
           App<OpenInNewIcon />
-        </a>
+        </a> */}
       </div>
     </>
   );
