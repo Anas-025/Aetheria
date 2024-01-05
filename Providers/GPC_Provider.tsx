@@ -1,18 +1,15 @@
-import { Grow, GrowProps } from '@mui/material';
-import React, { ReactNode, createContext, useState } from 'react';
+import React, { ReactNode, createContext, useContext, useState } from 'react';
 import ErrorDialog from './ErrorDialog';
 import GPBackdrop from './GPBackdrop';
 import GPDialog from './GPDialog';
 import GPSnackbar from './GPSnackbar';
 
 
-function GrowTransition(props: GrowProps) {
-  return <Grow {...props} />;
-}
+
 export interface GPCType {
   showError: (message: string) => void;
   showSnackbar: (message: string) => void;
-  showDialog: (title: string, message: string, primaryActionText: string, primaryActionHandler: () => void) => void;
+  showDialog: (title: string, message: string, secondaryText: string, primaryActionText: string, primaryActionHandler: () => void) => void;
   closeDialog: () => void;
   showBackdrop: (message: string) => void;
   closeBackdrop: () => void;
@@ -40,6 +37,7 @@ const GPCProvider: React.FC<GPCProviderProps> = ({ children }) => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [primaryActionText, setPrimaryActionText] = useState('');
+  const [secondaryText, setSecondaryText] = useState('');
   const [primaryActionHandler, setPrimaryActionHandler] = useState<() => void>(() => {});
   const [backdropLoading, setBackdropLoading] = useState(false);
   const [backdropMessage, setBackdropMessage] = useState('');
@@ -49,11 +47,13 @@ const GPCProvider: React.FC<GPCProviderProps> = ({ children }) => {
   const showDialog = (
     dialogTitle: string,
     dialogMessage: string,
+    secondaryText: string,
     dialogPrimaryActionText: string,
     dialogPrimaryActionHandler: () => void
   ) => {
     setTitle(dialogTitle);
     setMessage(dialogMessage);
+    setSecondaryText(secondaryText);
     setPrimaryActionText(dialogPrimaryActionText);
     setPrimaryActionHandler(() => {
       if (dialogPrimaryActionHandler) {
@@ -74,8 +74,6 @@ const GPCProvider: React.FC<GPCProviderProps> = ({ children }) => {
   const closeDialog = () => {
     setOpen(false);
   };
-
-  
 
   const showError = (message: string) => {
     setErrorMessage(message);
@@ -101,11 +99,13 @@ const GPCProvider: React.FC<GPCProviderProps> = ({ children }) => {
       {children}
 
       <GPBackdrop loading={backdropLoading} message={backdropMessage} />
-      <GPDialog open={open} title={title} message={message} primaryActionText={primaryActionText} handlePrimaryAction={handlePrimaryAction} closeDialog={closeDialog} />
+      <GPDialog open={open} title={title} message={message} secondaryText={secondaryText} primaryActionText={primaryActionText} handlePrimaryAction={handlePrimaryAction} closeDialog={closeDialog} />
       <ErrorDialog message={errorMessage} open={openDialog} setOpen={setOpenDialog} />
       <GPSnackbar snackbarMessage={snackbarMessage} openSnackbar={openSnackbar} setOpenSnackbar={setOpenSnackbar} />
+      
     </GPCContext.Provider>
   );
 };
 
 export { GPCProvider };
+export const useGPC = () => useContext(GPCContext);

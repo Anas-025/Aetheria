@@ -1,11 +1,11 @@
 import {
   AnalyticsOutlined,
   Book,
-  EmojiEvents,
+  BookOutlined,
   GroupsOutlined,
+  LibraryBooks,
   PermIdentity,
   Schedule,
-  Stadium
 } from "@mui/icons-material";
 import { AppDrawerList, AppNavList } from "types/app";
 
@@ -13,13 +13,13 @@ export const userNavList: AppNavList[] = [
   {
     id: 0,
     name: "All Books",
-    icon: Stadium ,
+    icon: LibraryBooks ,
     link: "/app",
   },
   {
     id: 1,
     name: "My Books",
-    icon: EmojiEvents ,
+    icon: BookOutlined   ,
     link: "/app/myBooks",
   },
   {

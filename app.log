@@ -1,0 +1,37 @@
+{"level":30,"time":1688812478036,"pid":16356,"hostname":"LAPTOP-4AN6U9MI","msg":"hello world"}
+{"level":30,"time":1688812500472,"pid":16356,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1688812679800,"pid":16356,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1688813111888,"pid":16356,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1688813123079,"pid":16356,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1688813123915,"pid":16356,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1688813162408,"pid":16356,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1688813170865,"pid":16356,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579123674,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579134499,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579201039,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579220714,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579240253,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579242575,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579253958,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579375217,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689579656049,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689581654539,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":50,"time":1689581664566,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","err":{"type":"FirebaseError","message":"Failed to get document because the client is offline.","stack":"FirebaseError: Failed to get document because the client is offline.","code":"unavailable","name":"FirebaseError"},"msg":"Failed to get document because the client is offline."}
+{"level":30,"time":1689581666669,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":50,"time":1689581666670,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","err":{"type":"FirebaseError","message":"Failed to get document because the client is offline.","stack":"FirebaseError: Failed to get document because the client is offline.","code":"unavailable","name":"FirebaseError"},"msg":"Failed to get document because the client is offline."}
+{"level":30,"time":1689581675224,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":50,"time":1689581675242,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","err":{"type":"FirebaseError","message":"Failed to get document because the client is offline.","stack":"FirebaseError: Failed to get document because the client is offline.","code":"unavailable","name":"FirebaseError"},"msg":"Failed to get document because the client is offline."}
+{"level":30,"time":1689581740682,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":50,"time":1689581740715,"pid":14612,"hostname":"LAPTOP-4AN6U9MI","err":{"type":"FirebaseError","message":"Failed to get document because the client is offline.","stack":"FirebaseError: Failed to get document because the client is offline.","code":"unavailable","name":"FirebaseError"},"msg":"Failed to get document because the client is offline."}
+{"level":30,"time":1689881336765,"pid":11972,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1689881349075,"pid":11972,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698571347064,"pid":2788,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698571460553,"pid":2788,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698571500317,"pid":2788,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698571833357,"pid":2788,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698571882980,"pid":2788,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698572010189,"pid":2788,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698572379211,"pid":2788,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698572406502,"pid":2788,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698607693468,"pid":1812,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}
+{"level":30,"time":1698666755457,"pid":3804,"hostname":"LAPTOP-4AN6U9MI","msg":"Hi"}

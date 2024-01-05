@@ -2,7 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Dialog
 
 function GPDialog(props: any) {
 
-    const { open, closeDialog, title, message, primaryActionText, handlePrimaryAction } = props;
+    const { open, closeDialog, title, message, secondaryText, primaryActionText, handlePrimaryAction } = props;
 
 
   return (
@@ -13,7 +13,7 @@ function GPDialog(props: any) {
       </DialogContent>
       <DialogActions>
         <Button onClick={closeDialog} color="primary">
-          Close
+          {secondaryText}
         </Button>
         <Button onClick={handlePrimaryAction} color="warning">
           {primaryActionText}

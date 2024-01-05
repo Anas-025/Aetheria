@@ -49,7 +49,16 @@ export default function BooksTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {booksData
+            {
+              booksData.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={6} align="center">
+                    No Books Found
+                  </TableCell>
+                </TableRow>
+              )
+              :
+            booksData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((book: any, index: number) => (
                 <Row

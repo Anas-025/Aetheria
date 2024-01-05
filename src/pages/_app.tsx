@@ -16,15 +16,13 @@ export default function App({ Component, pageProps }: AppProps) {
   if (router.pathname.startsWith("/app")) {
     return (
       <Suspense fallback={<Loading />}>
-        <UserProvider>
-          <MeetingProvider>
+        {/* <UserProvider> */}
             <GPCProvider>
               <AppLayout>
                 <Component {...pageProps} />
               </AppLayout>
             </GPCProvider>
-          </MeetingProvider>
-        </UserProvider>
+        {/* </UserProvider> */}
       </Suspense>
     );
   }

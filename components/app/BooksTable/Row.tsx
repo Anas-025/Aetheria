@@ -68,13 +68,20 @@ export default function Row(props: Props) {
   };
 
   const handleOpenDialog = () => {
-    showDialog(
-      "Are you sure want to edit this?",
-      "These changes will be permanent.",
-      "Confirm",
-      handleSave
-    );
+    // showDialog(
+    //   "Are you sure want to edit this?",
+    //   "These changes will be permanent.",
+    //   "Confirm",
+    //   handleSave
+    // );
   };
+
+  const handlePublishClick = async () => {
+    console.log(row)
+    // setRowId(row.id);
+    // handleIssueBook();
+  }
+
 
   return (
     <>
@@ -154,17 +161,7 @@ export default function Row(props: Props) {
               <IconButton onClick={() => setIsEdit(true)}>
                 <Edit />
               </IconButton>
-              <IconButton
-                onClick={() => {
-                  setRowId(row.id);
-                  showDialog(
-                    "Are you sure want to issue this book?",
-                    "This book will be issued to the student.",
-                    "Confirm",
-                    handleIssueBook
-                  );
-                }}
-              >
+              <IconButton onClick={handlePublishClick}>
                 <Publish />
               </IconButton>
             </>

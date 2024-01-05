@@ -1,5 +1,5 @@
 export interface AppNavList {
-  id: number
+  id: number;
   name: string;
   icon: React.FC;
   link: string;

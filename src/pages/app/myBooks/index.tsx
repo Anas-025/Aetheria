@@ -96,3 +96,10 @@ const App = () => {
 };
 
 export default App;
+
+export const getServerSideProps = async (ctx: any) => {
+  console.log("getServerSideProps");
+  return {
+    props: {},
+  };
+}
